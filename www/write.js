@@ -1,0 +1,1 @@
+document.write("<pre>" + JSON.stringify(getReport(), null, 2) + "</pre>");
