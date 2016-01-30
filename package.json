@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/kevin-smets/druids.git"
   },
+  "bin": {
+    "druids": "bin/druids"
+  },
   "keywords": [
     "dependency",
     "dependencies",
