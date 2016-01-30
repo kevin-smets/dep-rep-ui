@@ -4,25 +4,37 @@
 
 Dependency Reporter UI Data Server, used as middleware between dep-rep and, most likely, a frontend UI.
 
-## Run
+## Install
 
 ```
-npm run druids
+npm i (-g) druids
 ```
+
+## Run
+
+If you installed it globally, just run `druids`
 
 This will start a RESTful server on http://localhost:3000
 
-## Usage
+If you want to use druids as node module:
 
-## Remotely hosted package.json
+```
+var druids = require('../druids')
+
+druids.exec();
+```
+
+## Use
+
+### Remotely hosted package.json
 
 http://localhost:3000/dep-rep?remote=https://raw.githubusercontent.com/kevin-smets/clam/master/package.json
 
 Beware: the url query is passed on to dep-rep *AS-IS*.
 
-## Local package.json
+### Local package.json
 
-First, create a locals.json in druids's folder root. It can look like this:
+First, create a locals.json in druids's folder root. Run `which druids` in terminal to find this folder if you're unsure. It can look like this:
 
 ```
 {
