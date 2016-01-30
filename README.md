@@ -2,7 +2,7 @@
 
 > These are the druids you are looking for.
 
-Dependency Reporter UI Data Server, used as middleware for dep-rep, so you can build a UI on this.
+Dependency Reporter UI Data Server, used as middleware between dep-rep and, most likely, a frontend UI.
 
 ## Run
 
@@ -10,15 +10,30 @@ Dependency Reporter UI Data Server, used as middleware for dep-rep, so you can b
 npm run druids
 ```
 
-This will start a server on http://localhost:3000
+This will start a RESTful server on http://localhost:3000
 
 ## Usage
 
-After that, simply go to e.g. http://localhost:3000/dep-rep?p=https://raw.githubusercontent.com/kevin-smets/clam/master/package.json
+## Remotely hosted package.json
 
-You will get the dependency report in json from druids.
+http://localhost:3000/dep-rep?remote=https://raw.githubusercontent.com/kevin-smets/clam/master/package.json
 
-The url query is passed on the dep-rep *AS-IS*. The only parameter supported for now is `p`, this is the path to a local or remote json.
+Beware: the url query is passed on to dep-rep *AS-IS*.
+
+## Local package.json
+
+First, create a locals.json in druids's folder root. It can look like this:
+
+```
+{
+  "dep-rep": "../dep-rep/package.json",
+  "druids": "package.json"
+}
+```
+
+To then GET the available locals: http://localhost:3000/dep-rep/locals
+
+To GET the dependency report for a given local: http://localhost:3000/dep-rep/local/dep-rep
 
 ## Disclaimer
 

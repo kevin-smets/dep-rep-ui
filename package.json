@@ -6,6 +6,9 @@
   "scripts": {
     "druids": "./druids.js"
   },
+  "engines": {
+    "node": ">= 4.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kevin-smets/druids.git"
@@ -26,7 +29,7 @@
   },
   "homepage": "https://github.com/kevin-smets/druids#readme",
   "dependencies": {
-    "dep-rep": "< 0.5",
+    "dep-rep": "< 0.6",
     "express": "^4.13.4"
   }
 }
