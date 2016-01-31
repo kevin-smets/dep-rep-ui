@@ -19,23 +19,29 @@ module.exports.exec = function() {
         return require('./locals');
     }
 
+    app.all('/*', function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
+        next();
+    });
+
     app.get('/dep-rep', function (req, res) {
         if (req.query.remote && req.query.remote.indexOf('https://') == 0) {
             depRep.analyze({p: req.query.remote})
                 .then(function (data) {
-                    return res.json(data);
+                    return res.jsonp(data);
                 });
         } else {
-            res.json(stringifyError(new Error("Only https:// url's are supported for remote")));
+            res.jsonp(stringifyError(new Error("Only https:// url's are supported for remote")));
         }
     });
 
     app.get('/dep-rep/locals', function (req, res) {
         try {
-            res.json({locals: Object.keys(getLocals())});
+            res.jsonp({locals: Object.keys(getLocals())});
         }
         catch (err) {
-            res.json(stringifyError(err));
+            res.jsonp(stringifyError(err));
         }
     });
 
@@ -44,16 +50,16 @@ module.exports.exec = function() {
             var pathToLocalJson = getLocals()[req.params.local];
 
             if (!pathToLocalJson) {
-                return res.json(stringifyError(new Error("Requested local was not defined in locals.json.")));
+                return res.jsonp(stringifyError(new Error("Requested local was not defined in locals.json.")));
             }
 
             depRep.analyze({p: pathToLocalJson})
                 .then(function (data) {
-                    return res.json(data);
+                    return res.jsonp(data);
                 });
         }
         catch (err) {
-            res.json(stringifyError(err));
+            res.jsonp(stringifyError(err));
         }
     });
 
