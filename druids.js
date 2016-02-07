@@ -6,10 +6,11 @@ module.exports.exec = function(options) {
     options = options || {};
     options.port = options.port || 3221;
 
-    const depRep = require("dep-rep");
-    const express = require('express');
+    var depRep = require("dep-rep");
+    var express = require('express');
+    var path = require('path');
 
-    const app = express();
+    var app = express();
 
     var stringifyError = function (err) {
         var plainObject = {};
@@ -20,7 +21,7 @@ module.exports.exec = function(options) {
     };
 
     function getLocals() {
-        return require('./locals');
+        return require(path.join(process.cwd(), 'locals'));
     }
 
     app.all('/*', function(req, res, next) {
