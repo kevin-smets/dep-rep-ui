@@ -30,7 +30,7 @@
   "homepage": "https://github.com/kevin-smets/druids#readme",
   "dependencies": {
     "dep-rep": "< 0.6",
-    "express": "^4.13.4",
-    "yargs": "^3.32.0"
+    "express": "4.13.4",
+    "yargs": "3.32.0"
   }
 }
