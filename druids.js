@@ -2,7 +2,8 @@
 'use strict';
 
 module.exports.exec = function(options) {
-    // Default values for options
+    // Set the default values for options
+    options = options || {};
     options.port = options.port || 3221;
 
     const depRep = require("dep-rep");
