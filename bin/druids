@@ -1,4 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
-require('../druids').exec();
+var argv = require('yargs').argv;
+
+require('../druids').exec({
+    port: argv.p || argv.port
+});

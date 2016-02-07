@@ -10,18 +10,34 @@ Dependency Reporter UI Data Server, used as middleware between dep-rep and, most
 npm i (-g) druids
 ```
 
-## Run
+## CLI
 
 If you installed it globally, just run `druids`
 
-This will start a RESTful server on http://localhost:3000
+This will start a RESTful server on http://localhost:3221
+
+You can set another port by running:
+
+```
+druids --port 4000
+```
+
+## NPM
 
 If you want to use druids as node module:
 
 ```
 var druids = require('../druids')
 
-druids.exec();
+druids.exec(options);
+```
+
+Options has the following optional properties:
+
+```
+var options = {
+    port: 4000      // Default value is 3221
+}
 ```
 
 ## Use

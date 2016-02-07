@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 'use strict';
 
-module.exports.exec = function() {
+module.exports.exec = function(options) {
+    // Default values for options
+    options.port = options.port || 3221;
+
     const depRep = require("dep-rep");
     const express = require('express');
 
@@ -63,6 +66,6 @@ module.exports.exec = function() {
         }
     });
 
-    app.listen(3000);
-    console.log("The druids are serving localhost:3000");
+    app.listen(options.port);
+    console.log("The druids are serving localhost:" + options.port);
 };
