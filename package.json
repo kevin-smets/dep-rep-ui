@@ -31,6 +31,6 @@
   "dependencies": {
     "dep-rep": "0.6.1",
     "express": "4.13.4",
-    "yargs": "4.1.0"
+    "yargs": "4.6.0"
   }
 }
