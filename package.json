@@ -29,8 +29,8 @@
   },
   "homepage": "https://github.com/kevin-smets/druids#readme",
   "dependencies": {
-    "dep-rep": "0.6.2",
+    "dep-rep": "0.6.3",
     "express": "4.13.4",
-    "yargs": "4.6.0"
+    "yargs": "4.7.1"
   }
 }
